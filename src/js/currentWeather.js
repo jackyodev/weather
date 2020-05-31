@@ -1,8 +1,5 @@
-
-
-
 import React from "react";
-import image from "./icons/animated/cloudy-day-1.svg"
+import image from "../icons/animated/cloudy.svg"
 
 
 
@@ -19,17 +16,18 @@ export const currentWeatherContainer = (weather) =>{
       <div className="weather__header">
        <h2 className="header">{Math.round(weather.temp)}°</h2>
       </div>
-      <div className = "weather__info"> 
-       <h3> {weather.weather_title}</h3>
-       <h3> {weather.weather_desc}</h3>
-       <p> Max Temp: {Math.round(weather.max_temp)}°</p>
-       <p> Min Temp: {Math.round(weather.min_temp)}° </p></div>
+
      </div>
+      <div className="weather__info">
+        {/* <h3> {weather.weather_desc}</h3>
+        <p> Max Temp: {Math.round(weather.max_temp)}°</p>
+        <p> Min Temp: {Math.round(weather.min_temp)}° </p> */}
+      </div>
     </div>
   )
  }
  else {
-  return (<h1> Loading ...</h1>)
+  return (<h1> Loading ... </h1>)
  }
 
 

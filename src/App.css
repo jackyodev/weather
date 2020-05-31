@@ -35,15 +35,24 @@ body {
 
 .weather__icon__container {
  align-self: center;
+ height: 25vw;
+ width: 25vw;
+ background-color: tan;
 }
 
 
 .weather__icon {
- height: 40vw;
+ object-fit: cover;
+ height: 500px;
 }
 
 .weather__header {
  font-size: 8vw;
  align-self: center;
 
+}
+
+.weather__info{
+ display: flex;
+ justify-content: space-evenly;
 }

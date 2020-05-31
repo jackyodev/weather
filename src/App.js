@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
 import { WeatherAPIKey } from "./key"
 import './App.css';
 
+import { currentWeatherContainer } from './js/currentWeather'
 
-// const log = (message) => { console.log(message, "LOG HERE") }
+import { navigationContainer} from "./js/navigation.js"
 
-
-import { currentWeatherContainer } from './currentWeather'
 
 class App extends Component {
   constructor(props) {
@@ -78,12 +77,7 @@ class App extends Component {
     console.log(this.state)
     return (
       <>
-        <div className="navigation__container">
-          <NavLink to="/current"> Current </NavLink>
-          <NavLink to="/week">7-Days Forecast</NavLink>
-          <input type="text" placeholder="Search" />
-        </div>
-
+      {/* {navigationContainer()} */}
         <Switch>
           <Route exact path="/">{currentWeatherContainer(weather)}</Route>
         </Switch>
