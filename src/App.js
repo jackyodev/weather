@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
-// import { WeatherAPIKey } from "./key"
+
+import { WeatherAPIKey } from "./key"
+
+
 import './App.css';
 
 import { currentWeatherContainer } from './js/currentWeather'
@@ -10,6 +13,9 @@ import { currentWeatherContainer } from './js/currentWeather'
 import { navigationContainer } from "./js/navigation.js"
 
 import { forecast } from "./js/forecast.js"
+
+
+require('dotenv').config()
 
 
 
@@ -55,6 +61,8 @@ class App extends Component {
 
 
   callWeatherApi(props) {
+    console.log(process.env)
+
     let { longitude, latitude } = props;
     let api1 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${WeatherAPIKey}&units=imperial`;
     let api2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely,current&appid=${WeatherAPIKey}&units=imperial`;
