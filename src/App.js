@@ -12,11 +12,10 @@ import { currentWeatherContainer } from './js/currentWeather'
 
 import { navigationContainer } from "./js/navigation.js"
 
-import { forecast } from "./js/forecast.js"
+import { renderForecast } from "./js/forecast.js"
 
 
 require('dotenv').config()
-
 
 
 class App extends Component {
@@ -46,10 +45,13 @@ class App extends Component {
   getGeoLocation(event) {
     // event.preventDefault()
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition((position) => { this.setCoords(position) }, (err)=> {console.log(err)})
-      this.setState({
+          navigator.geolocation.getCurrentPosition((position) => { this.setCoords(position) }, (err)=> {console.log(err)});
+          
+          this.setState({
         isGeoOn: true
       })
+
+
     }
     else {
       this.setState({
@@ -61,8 +63,6 @@ class App extends Component {
 
 
   callWeatherApi(props) {
-    console.log(process.env)
-
     let { longitude, latitude } = props;
     let api1 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${WeatherAPIKey}&units=imperial`;
     let api2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely,current&appid=${WeatherAPIKey}&units=imperial`;
@@ -99,20 +99,21 @@ class App extends Component {
 
 
   componentDidMount() {
-    this.getGeoLocation();
+    setTimeout(() => {
+      this.getGeoLocation();
+      
+    }, 5000);
   }
 
   render() {
     let weather = this.state.location_weather;
     let day = this.state.location_forecast;
-
-    console.log(day)
     return (
       <>
         {/* {navigationContainer()} */}
         <Switch>
           <Route exact path="/">{currentWeatherContainer(weather)}
-            {forecast(day[0])}
+          {renderForecast(day)}
           </Route>
 
         </Switch>

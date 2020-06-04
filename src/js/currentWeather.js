@@ -52,10 +52,7 @@ export const currentWeatherContainer = (weather) => {
           <h1> {weather.weather_title}</h1>
         </div>
 
-
         <div className="current__forecast">
-
-       
 
         </div>
 
