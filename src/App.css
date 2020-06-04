@@ -47,10 +47,10 @@ body {
 
 .day__container {
  display: flex;
- flex-wrap: wrap;
+ /* flex-wrap: wrap; */
  width: 99vw;
- overflow-y: hidden;
- justify-content: flex-start;
+ overflow: hidden;
+ /* justify-content: flex-start; */
  align-content: flex-start;
  text-align: center;
 
