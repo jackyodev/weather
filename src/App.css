@@ -1,81 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&display=swap');
 body {
- height: 100vh;
+  height: 100vh;
 }
 
 #root {
- font-size: calc(1em + 1vw) !important;
- height: 100%;
- display: flex;
- flex-direction: column;
- justify-content: flex-start;
- align-items: center;
- background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(1em + 1vw) !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .current__container {
- margin: 1vw;
- padding: 1vw;
- text-align: center;
+  margin: .1vw;
+  padding: .1vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 }
 
 .current__weather {
- display: flex;
- justify-content: space-between;
- align-items: center;
- /* background-color: teal; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .current__weather h1 {
- margin-left: 1vw;
- margin-right: 1vw;
- font-size: 4vw;
-
+  margin-left: .1vw;
+  margin-right: .1vw;
+  font-size: 4vw;
 }
 
 .current__weather .temp {
- font-size: 4.5vw;
+  font-size: 4vw;
 }
 
 .weather__icon {
- object-fit: cover;
- width: 15vw;
+  object-fit: cover;
+  width: 10vw;
 }
-
 
 .current__forecast {}
 
-
 .day__container {
- display: flex;
- /* flex-wrap: wrap; */
- width: 99vw;
- overflow: hidden;
- /* justify-content: flex-start; */
- align-content: flex-start;
- text-align: center;
-
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  /* width: 99vw; */
+  /* overflow: hidden; */
+  /* justify-content: flex-start; */
+  align-content: flex-start;
+  text-align: center;
 }
 
 .day {
- margin: 1vw;
- padding: 1vw;
+  margin: .5vw;
+  padding: .5vw;
 }
 
 .day p, h3 {
- margin: 0;
- padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.day p {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
 .day img {
- margin: 1vw;
- padding: 1vw;
- width: 6vw;
+  margin: 1vw;
+  padding: 1vw;
+  width: 6vw;
 }
 
-
-
 h6 {
- margin: 1vw;
- padding: 1vw;
- color: gray;
+  margin: 1vw;
+  padding: 1vw;
+  color: gray;
 }
