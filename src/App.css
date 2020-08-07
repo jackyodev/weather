@@ -47,10 +47,10 @@ body {
 
 .day__container {
  display: flex;
- /* flex-wrap: wrap; */
+ flex-wrap: wrap;
  width: 99vw;
- overflow: hidden;
- /* justify-content: flex-start; */
+ /* overflow: hidden; */
+ justify-content: space-evenly;
  align-content: flex-start;
  text-align: center;
 
@@ -67,12 +67,15 @@ body {
 }
 
 .day img {
- margin: 1vw;
- padding: 1vw;
+ margin: 0;
+ padding: 0;
  width: 6vw;
 }
 
-
+h5 {
+ margin: 1vw;
+ padding: 1vw;
+}
 
 h6 {
  margin: 1vw;
