@@ -40,7 +40,6 @@ class App extends Component {
 
 
   getGeoLocation(event) {
-    // event.preventDefault()
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => { this.setCoords(position) }, (err)=> {console.log(err)});
           
@@ -139,7 +138,7 @@ class App extends Component {
         {/* {navigationContainer()} */}
         <Switch>
           <Route exact path="/">{currentWeatherContainer(weather,location)}
-          {renderForecast(day)}
+          {/* {renderForecast(day)} */}
           </Route>
 
         </Switch>

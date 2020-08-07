@@ -20,6 +20,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100vw;
+  height: 60%;
 }
 
 .current__weather {
@@ -49,6 +50,7 @@ body {
 .current__forecast {}
 
 .day__container {
+  height: 40%;
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;

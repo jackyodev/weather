@@ -55,9 +55,7 @@ const bgDayColor = (degree) => {
 };
 
 export const currentWeatherContainer = (weather, location) => {
-  console.log(location)
   if (weather && location) {
-
     return (
       <div
         className="current__container"
