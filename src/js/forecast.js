@@ -16,9 +16,10 @@ const valueToDate = (value) =>{
 const dtToDate = (dt) =>{
  let date = new Date(dt * 1000);
  let day = valueToDate(date.getDay())
-
+ 
  let dd = date.getDate();
- let mm = date.getMonth();
+ let mm = date.getMonth()+1;
+
 
  return (
   <>
@@ -40,8 +41,8 @@ const temp = (temp) => {
  if(temp.temp){
   return (
    <>
-   <img src={weatherIcon(id)} width = "50px"/> 
-   <p> {desc}</p>
+   <img src={weatherIcon(id)} width = "35px"/> 
+   <p>{desc}</p>
    <h5> {Math.round(temp.temp.max)}° </h5>
    <h6> {Math.round(temp.temp.min)}° </h6>
    </>
@@ -53,7 +54,6 @@ const temp = (temp) => {
 }
 
 const forecast = (day) => { 
- console.log(day)
  let map = day.map (el => {
   return (
    <div className="day">

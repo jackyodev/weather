@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
-
-import { WeatherAPIKey } from "./key"
+import { WeatherAPIKey, LocationAPIKey } from "./key"
 
 
 import './App.css';
 
 import { currentWeatherContainer } from './js/currentWeather'
-
 import { navigationContainer } from "./js/navigation.js"
-
 import { renderForecast } from "./js/forecast.js"
 
 
@@ -43,7 +40,6 @@ class App extends Component {
 
 
   getGeoLocation(event) {
-    // event.preventDefault()
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => { this.setCoords(position) }, (err)=> {console.log(err)});
           
@@ -66,7 +62,8 @@ class App extends Component {
     let { longitude, latitude } = props;
     let api1 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${WeatherAPIKey}&units=imperial`;
     let api2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely,current&appid=${WeatherAPIKey}&units=imperial`;
-
+    let api3 = `https://api.opencagedata.com/geocode/v1/json?q=${latitude},${longitude},&key=${LocationAPIKey}`;
+    
     axios.get(api1)
       .then((res) => {
         this.setState({
@@ -82,19 +79,45 @@ class App extends Component {
           }
         })
       }).then(() => {
-        axios.get(api2)
+        axios
+          .get(api2)
           .then((res) => {
             this.setState({
-              location_forecast: res.data.daily
-            })
+              location_forecast: res.data.daily,
+            });
+          })
+          .then(() => {
+            axios.get(api3).then((res) => {
+                let data = res.data.results[0].components;
+                this.setState({
+                  location_data: {
+                    location_road: data.road,
+                    location_state: data.state,
+                    location_stateCode: data.state_code,
+                    location_postalCode: data.postcode,
+                    location_area: data.suburb,
+                  },
+                });
+              }
+            );
           })
           .catch((err) => {
-            console.log(err)
-          })
+            console.log(err);
+          });
       }
-      ).catch(err => {
+      )
+      
+      .catch(err => {
         console.log(err)
       })
+  }
+
+
+  refresh () {
+    setInterval(() => {
+      this.getGeoLocation();
+
+    }, 30000);
   }
 
 
@@ -102,18 +125,20 @@ class App extends Component {
     setTimeout(() => {
       this.getGeoLocation();
       
-    }, 5000);
+    }, 3000);
   }
 
   render() {
     let weather = this.state.location_weather;
+    let location = this.state.location_data;
     let day = this.state.location_forecast;
+    // this.refresh();
     return (
       <>
         {/* {navigationContainer()} */}
         <Switch>
-          <Route exact path="/">{currentWeatherContainer(weather)}
-          {renderForecast(day)}
+          <Route exact path="/">{currentWeatherContainer(weather,location)}
+          {/* {renderForecast(day)} */}
           </Route>
 
         </Switch>

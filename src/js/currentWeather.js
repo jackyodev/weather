@@ -37,27 +37,50 @@ import { weatherIcon } from "./iconWeather"
 // }
 
 
+const bgTopColor = (degree) => { 
+  if(degree < 80){
+    return "#C8E6C9";
+  }
+  else if(degree > 80){
+    return "#FFD740";
+  }
+}
 
-export const currentWeatherContainer = (weather) => {
+const bgDayColor = (degree) => {
+  if (degree < 80) {
+    return "#C8E6C9";
+  } else if (degree > 80) {
+    return "#FFD740";
+  }
+};
 
-  if (weather) {
-
+export const currentWeatherContainer = (weather, location) => {
+  if (weather && location) {
     return (
-      <div className="current__container">
-          {/* <h1> {weather.location_name}</h1> */}
-
+      <div
+        className="current__container"
+        style={{ backgroundColor: bgTopColor(Math.round(weather.temp)) }}
+      >
         <div className="current__weather">
-          <h1 className = "temp">{Math.round(weather.temp)}° </h1>
-          <img className="weather__icon" alt="" src={weatherIcon(weather.weather_id)} />
+          <h1 className="temp">{Math.round(weather.temp)}° </h1>
+          <img
+            className="weather__icon"
+            alt=""
+            src={weatherIcon(weather.weather_id)}
+          />
           <h1> {weather.weather_title}</h1>
         </div>
-
-        <div className="current__forecast">
-
+        <div className="current__weather">
+          <p>
+            {" "}
+            {location.location_area}, {location.location_stateCode}
+          </p>
         </div>
 
+        {/* <div className="current__forecast">
+        </div> */}
       </div>
-    )
+    );
   }
   else {
     return (<h1> Loading ... </h1>)
