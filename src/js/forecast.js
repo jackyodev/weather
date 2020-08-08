@@ -5,7 +5,7 @@ import { weatherIcon } from "./iconWeather"
 
 const valueToDate = (value) =>{
 
- let x = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+ let x = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
  if(value > -1 && value < 8 && value !== undefined ){
   return x[value]
@@ -22,11 +22,11 @@ const dtToDate = (dt) =>{
 
 
  return (
-  <>
-  <h6> {mm}/{dd} </h6>
-  <h3> {day} </h3>
-  </>
- )
+   <>
+     <h6> {mm}/{dd}</h6>
+     <h6>{day}</h6>
+   </>
+ );
 }
 
 const temp = (temp) => {
@@ -40,14 +40,15 @@ const temp = (temp) => {
 
  if(temp.temp){
   return (
-   <>
-   <img src={weatherIcon(id)} width = "35px"/> 
-   <p>{desc}</p>
-   <h5> {Math.round(temp.temp.max)}° </h5>
-   <h6> {Math.round(temp.temp.min)}° </h6>
-   </>
-
-  )
+    <>
+      <img src={weatherIcon(id)} />
+      <p>{desc}</p>
+      <div className = "temp">
+        <div className = "high">{Math.round(temp.temp.max)}°F</div>
+        <div className = "low">{Math.round(temp.temp.min)}°F</div> 
+      </div>
+    </>
+  );
  }
 
 

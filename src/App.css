@@ -1,69 +1,154 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 body {
   height: 100vh;
 }
 
 #root {
+  height: 100%;
   font-family: 'Montserrat', sans-serif;
   font-size: calc(1em + 1vw) !important;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
 }
 
 .current__container {
-  margin: .1vw;
-  padding: .1vw;
-  text-align: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
-  width: 100vw;
-  height: 60%;
+  background-image: linear-gradient(321deg, rgba(0, 0, 0, 0.52) 26%, rgba(0, 0, 0, .5) 100%), url("https://media.gettyimages.com/photos/town-squareseattle-picture-id955941810?s=2048x2048");
+  background-size: cover;
 }
 
 .current__weather {
+  color: whitesmoke;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 1rem;
-  margin: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2rem;
   padding: 1rem;
 }
 
-.current__weather h1 {
-  margin-left: .1vw;
-  margin-right: .1vw;
-  font-size: 4vw;
+.left {
+  border-right: 1px solid rgba(128, 128, 128, 0.534);
 }
 
-.current__weather .temp {
-  font-size: 4vw;
+.right {
+  align-items: center;
+  justify-content: center;
+}
+
+.search__input {
+  border-radius: 10px;
+  background: rgba(204, 204, 204, 0.603);
+  color: rgb(44, 44, 44);
+  box-shadow: none;
+  border: 1px solid rgba(128, 128, 128, 0.534);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 2vw;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search__input:hover {
+  background: #ccc;
+}
+
+.search__input:focus {
+  outline-width: 0;
+}
+
+.search__submit {
+  font-size: 2vw;
+  padding: 10px;
+  background: rgba(204, 204, 204, 0.603);
+  border: 1px solid rgba(128, 128, 128, 0.534);
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.search__submit:active {
+  background-color: #ccc;
+}
+
+.current__weather>.current__temp {
+  padding: 0;
+  margin: 0;
+  font-size: 10rem;
+  display: flex;
+}
+
+.weather__visuals {
+  display: flex;
+  align-items: center;
+}
+
+.weather__visuals>p {
+  margin: 10%;
+  font-size: 3.5vw;
+}
+
+.current_weather_title {
+  font-size: 1rem;
 }
 
 .weather__icon {
-  object-fit: cover;
   width: 10vw;
+  object-fit: cover;
+  /* min-width: 10vw; */
+  margin: -10%;
 }
 
 .current__forecast {}
 
 .day__container {
-  height: 40%;
+  align-items: center;
   display: flex;
-  flex-wrap: wrap;
   flex-grow: 1;
-  /* width: 99vw; */
-  /* overflow: hidden; */
-  /* justify-content: flex-start; */
-  align-content: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   text-align: center;
+  margin: auto;
+  color: darkslategrey;
+  background-color: rgba(224, 224, 224, 0.979);
 }
 
 .day {
-  margin: .5vw;
-  padding: .5vw;
+  align-self: stretch;
+  border-right: 1px solid rgba(211, 211, 211, 0.507);
+  /* border-radius: 10px; */
+  flex-grow: 1;
+  min-width: 180px;
+  width: 10vw;
+  min-height: 100px;
+  margin: 2.5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 2.5vh .25vw .5vh .25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* .day:nth-child(even) {
+  margin-left: .15vw;
+  margin-right: .15vw;
+} */
+
+.day:nth-child(odd) {}
+
+h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h6 {
+  /* font-weight: 100; */
+  /* color: gray; */
 }
 
 .day p, h3 {
@@ -72,19 +157,30 @@ body {
 }
 
 .day p {
-  font-size: 1.5rem;
-  margin: 0;
-  padding: 0;
+  /* font-size: 1.5rem; */
 }
 
 .day img {
-  margin: 1vw;
-  padding: 1vw;
-  width: 6vw;
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: -2.5vw;
+  margin-top: -.5vw;
+  width: 10vw;
 }
 
-h6 {
-  margin: 1vw;
-  padding: 1vw;
+.temp {
+  /* display: flex; */
+  justify-content: center;
+}
+
+.temp>.high {
+  /* color: gray; */
+  font-weight: bold;
+  align-self: center;
+}
+
+.temp>.low {
   color: gray;
+  font-size: calc(.5em + .25vw);
 }

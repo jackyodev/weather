@@ -1,7 +1,6 @@
 import React from "react";
 
-
-import { weatherIcon } from "./iconWeather"
+import { weatherIcon } from "./iconWeather";
 
 // export const currentWeatherContainer = (weather) =>{
 
@@ -33,18 +32,15 @@ import { weatherIcon } from "./iconWeather"
 //   return (<h1> Loading ... </h1>)
 //  }
 
-
 // }
 
-
-const bgTopColor = (degree) => { 
-  if(degree < 80){
+const bgTopColor = (degree) => {
+  if (degree <= 80) {
     return "#C8E6C9";
-  }
-  else if(degree > 80){
+  } else if (degree > 80) {
     return "#FFD740";
   }
-}
+};
 
 const bgDayColor = (degree) => {
   if (degree < 80) {
@@ -54,37 +50,61 @@ const bgDayColor = (degree) => {
   }
 };
 
-export const currentWeatherContainer = (weather, location) => {
-  if (weather && location) {
-    return (
-      <div
-        className="current__container"
-        style={{ backgroundColor: bgTopColor(Math.round(weather.temp)) }}
-      >
-        <div className="current__weather">
-          <h1 className="temp">{Math.round(weather.temp)}° </h1>
-          <img
-            className="weather__icon"
-            alt=""
-            src={weatherIcon(weather.weather_id)}
-          />
-          <h1> {weather.weather_title}</h1>
-        </div>
-        <div className="current__weather">
-          <p>
-            {" "}
-            {location.location_area}, {location.location_stateCode}
-          </p>
-        </div>
 
-        {/* <div className="current__forecast">
-        </div> */}
-      </div>
-    );
-  }
-  else {
-    return (<h1> Loading ... </h1>)
-  }
-
+const onSubmit = (event) => {
+  event.preventDefault();
+  console.log(event.target.value)
 
 }
+
+
+const onChange = (event, props) => {
+  event.preventDefault();
+  console.log(event.target.value);
+};
+
+export const currentWeatherContainer = (weather, location, searchQuery) => {
+  if (weather && location) {
+    return (
+      <div className="current__container">
+        <div className="current__weather left">
+          <div className="current__location">
+            {location.location_area},
+            <strong> {location.location_stateCode}</strong>
+          </div>
+
+          <div className="current__temp">
+            <div>{Math.round(weather.temp)}°F</div>
+          </div>
+          <div className="weather__visuals">
+            <img
+              className="weather__icon"
+              alt="weather_icon_visual"
+              src={weatherIcon(weather.weather_id)}
+            />
+            <p className="current_weather_title">{weather.weather_title} </p>
+          </div>
+        </div>
+
+        <div className="current__weather right">
+          <form
+            className="search__box"
+            onSubmit={(event) => onSubmit(event)}
+            onChange={(event) => searchQuery(event.target.value)}
+          >
+            <input
+              className="search__input"
+              type="text"
+              placeholder="Search Location..."
+            ></input>
+            <button className="search__submit" type="submit">
+              <i className="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  } else {
+    return <h1> Loading ... </h1>;
+  }
+};

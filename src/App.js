@@ -22,49 +22,50 @@ class App extends Component {
       isGeoOn: false,
       current_coords: {
         longitude: -75,
-        latitude: 43
+        latitude: 43,
       },
       search_location: "",
       location_weather: "",
-      location_forecast: [{weather:{id:0}}],
-
-    }
+      location_forecast: [{ weather: { id: 0 } }],
+    };
   }
 
   setCoords(position) {
     let x = position.coords.latitude;
     let y = position.coords.longitude;
     let coords = { latitude: x, longitude: y };
-    this.callWeatherApi(coords)
+    this.callWeatherApi(coords);
   }
-
 
   getGeoLocation(event) {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition((position) => { this.setCoords(position) }, (err)=> {console.log(err)});
-          
-          this.setState({
-        isGeoOn: true
-      })
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.setCoords(position);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
 
-
-    }
-    else {
       this.setState({
-        isGeoOn: false
-      })
-
+        isGeoOn: true,
+      });
+    } else {
+      this.setState({
+        isGeoOn: false,
+      });
     }
   }
-
 
   callWeatherApi(props) {
     let { longitude, latitude } = props;
     let api1 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${WeatherAPIKey}&units=imperial`;
     let api2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely,current&appid=${WeatherAPIKey}&units=imperial`;
     let api3 = `https://api.opencagedata.com/geocode/v1/json?q=${latitude},${longitude},&key=${LocationAPIKey}`;
-    
-    axios.get(api1)
+
+    axios
+      .get(api1)
       .then((res) => {
         this.setState({
           current_coords: res.data.coord,
@@ -75,10 +76,11 @@ class App extends Component {
             max_temp: res.data.main.temp_max,
             weather_title: res.data.weather[0].main,
             weather_id: res.data.weather[0].id,
-            weather_desc: res.data.weather[0].description
-          }
-        })
-      }).then(() => {
+            weather_desc: res.data.weather[0].description,
+          },
+        });
+      })
+      .then(() => {
         axios
           .get(api2)
           .then((res) => {
@@ -88,43 +90,35 @@ class App extends Component {
           })
           .then(() => {
             axios.get(api3).then((res) => {
-                let data = res.data.results[0].components;
-                this.setState({
-                  location_data: {
-                    location_road: data.road,
-                    location_state: data.state,
-                    location_stateCode: data.state_code,
-                    location_postalCode: data.postcode,
-                    location_area: data.suburb,
-                  },
-                });
-              }
-            );
+              let data = res.data.results[0].components;
+              this.setState({
+                location_data: {
+                  location_road: data.road,
+                  location_state: data.state,
+                  location_stateCode: data.state_code,
+                  location_postalCode: data.postcode,
+                  location_area: data.suburb,
+                },
+              });
+            });
           })
           .catch((err) => {
             console.log(err);
           });
-      }
-      )
-      
-      .catch(err => {
-        console.log(err)
       })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
+  searchQuery (value) {
+    this.setState();
 
-  refresh () {
-    setInterval(() => {
-      this.getGeoLocation();
-
-    }, 30000);
   }
-
 
   componentDidMount() {
     setTimeout(() => {
       this.getGeoLocation();
-      
     }, 3000);
   }
 
@@ -132,18 +126,17 @@ class App extends Component {
     let weather = this.state.location_weather;
     let location = this.state.location_data;
     let day = this.state.location_forecast;
-    // this.refresh();
     return (
       <>
         {/* {navigationContainer()} */}
         <Switch>
-          <Route exact path="/">{currentWeatherContainer(weather,location)}
-          {/* {renderForecast(day)} */}
+          <Route exact path="/">
+            {currentWeatherContainer(weather, location, this.searchQuery)}
+            {renderForecast(day)}
           </Route>
-
         </Switch>
       </>
-    )
+    );
   }
 }
 
