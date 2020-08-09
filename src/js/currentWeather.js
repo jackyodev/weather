@@ -3,21 +3,21 @@ import BG from "../icons/citybg.jpg"
 import { weatherIcon } from "./iconWeather";
 
 
-const bgTopColor = (degree) => {
-  if (degree <= 80) {
-    return "#C8E6C9";
-  } else if (degree > 80) {
-    return "#FFD740";
-  }
-};
+// const bgTopColor = (degree) => {
+//   if (degree <= 80) {
+//     return "#C8E6C9";
+//   } else if (degree > 80) {
+//     return "#FFD740";
+//   }
+// };
 
-const bgDayColor = (degree) => {
-  if (degree < 80) {
-    return "#C8E6C9";
-  } else if (degree > 80) {
-    return "#FFD740";
-  }
-};
+// const bgDayColor = (degree) => {
+//   if (degree < 80) {
+//     return "#C8E6C9";
+//   } else if (degree > 80) {
+//     return "#FFD740";
+//   }
+// };
 
 
 const bgLocationURL = (data) => {
