@@ -13,12 +13,37 @@ body {
   align-items: stretch;
 }
 
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 100px;
+}
+
 .current__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
-  background-image: linear-gradient(321deg, rgba(0, 0, 0, 0.52) 26%, rgba(0, 0, 0, .5) 100%), url("https://media.gettyimages.com/photos/town-squareseattle-picture-id955941810?s=2048x2048");
+  position: relative;
+  /* background-image: linear-gradient(321deg, rgba(0, 0, 0, 0.52) 26%, rgba(0, 0, 0, .5) 100%), url("https://media.gettyimages.com/photos/town-squareseattle-picture-id955941810?s=2048x2048"); */
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.current__container::after {
+  background-image: linear-gradient(321deg, rgba(0, 0, 0, 0.52) 26%, rgba(0, 0, 0, .5) 100%);
+  background-image: -moz-linear-gradient(321deg, rgba(0, 0, 0, 0.52) 26%, rgba(0, 0, 0, .5) 100%);
+  background-image: -ms-linear-gradient(321deg, rgba(0, 0, 0, 0.52) 26%, rgba(0, 0, 0, .5) 100%);
+  ;
+  background-image: -o-linear-gradient(321deg, rgba(0, 0, 0, 0.52) 26%, rgba(0, 0, 0, .5) 100%);
+  background-image: -webkit-linear-gradient(321deg, rgba(0, 0, 0, 0.52) 26%, rgba(0, 0, 0, .5) 100%);
+  content: "\00a0";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
 }
 
 .current__weather {
@@ -114,7 +139,8 @@ body {
   text-align: center;
   margin: auto;
   color: darkslategrey;
-  background-color: rgba(224, 224, 224, 0.979);
+  /* background-color: rgba(224, 224, 224, 0.979); */
+  background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
 }
 
 .day {
