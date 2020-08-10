@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **The Weather-App**
 
-## Available Scripts
+The Weather App is a Single Page Application created from create-react-app. It is designed to be a full-screen weather app that shows you the current weather and the 7 days forecast for a particular area.
 
-In the project directory, you can run:
+**Minimum Viable Product (MVP):**
 
-### `yarn start`
+-   Acquire current GPS location from the browser.
+-   Use GPS to show current weather in the area.
+-   Use GPS data to show 7 days forecast with icons, high and low.
+-   Search for other locations.
+-   When a new location is submitted the background will change to the spefici location.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Demo/Live:**
 
-The page will reload if you make edits.<br />
+ - [Demo Link](https://weather-jackyo-app.netlify.app/)
+
+**Beyond MVP**
+ - Detail pages of weather including UV index, pollen index, and the
+   chance of rain. Better search location handling using Google Place API.
+ - Better handling of weather conditions.
+ - Better loading screen.
+ - Default location when no coordinates are given.
+
+**Screenshot:**
+
+![Home Page](https://github.com/jackyodev/weather/blob/master/screencapture-weather-jackyo-app-netlify-app-2020-08-10-01_05_50.png?raw=true)
+
+**Installation:**
+
+ - Clone the git res. Yarn start to install dependency
+ - Get API key for OpenweatherAPI 
+ - Get API key for GeolocatioAPI
+ - Get API key from Google Place API
+ 
+Runs the app in the development mode using yarn start on terminal.  
+Open [http://localhost:3000](http://localhost:3000/) to view it in the browser.
+
+The page will reload if you make edits.  
 You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
