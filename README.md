@@ -1,5 +1,7 @@
 ## **The Weather-App**
 
+![Home Page](https://github.com/jackyodev/weather/blob/master/screencapture-weather-jackyo-app-netlify-app-2020-08-10-01_05_50.png?raw=true)
+
 The Weather App is a Single Page Application created from create-react-app. It is designed to be a full-screen weather app that shows you the current weather and the 7 days forecast for a particular area.
 
 **Minimum Viable Product (MVP):**
@@ -21,9 +23,7 @@ The Weather App is a Single Page Application created from create-react-app. It i
  - Better loading screen.
  - Default location when no coordinates are given.
 
-**Screenshot:**
 
-![Home Page](https://github.com/jackyodev/weather/blob/master/screencapture-weather-jackyo-app-netlify-app-2020-08-10-01_05_50.png?raw=true)
 
 **Installation:**
 
