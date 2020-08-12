@@ -7,7 +7,7 @@ import { WeatherAPIKey, LocationAPIKey, PlaceAPIKey } from "./key";
 import "./App.css";
 
 import { currentWeatherContainer } from "./js/currentWeather";
-import { navigationContainer } from "./js/navigation.js";
+// import { navigationContainer } from "./js/navigation.js";
 import { renderForecast } from "./js/forecast.js";
 
 require("dotenv").config();

@@ -41,7 +41,7 @@ const temp = (temp) => {
  if(temp.temp){
   return (
     <>
-      <img src={weatherIcon(id)} />
+      <img alt = "weatherIcon" src={weatherIcon(id)} />
       <p>{desc}</p>
       <div className = "temp">
         <div className = "high">{Math.round(temp.temp.max)}°F</div>
