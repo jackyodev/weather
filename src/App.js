@@ -189,7 +189,7 @@ class App extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.getGeoLocation();
-    }, 3000);
+    }, 4000);
   }
 
   render() {

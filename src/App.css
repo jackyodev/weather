@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 body {
   height: 100vh;
 }
@@ -156,13 +157,15 @@ body {
 }
 
 
-h5, h6 {
+h5,
+h6 {
   margin: 0;
   padding: 0;
 }
 
 
-.day p, h3 {
+.day p,
+h3 {
   margin: 0;
   padding: 0;
 }
@@ -189,4 +192,27 @@ h5, h6 {
 .temp>.low {
   color: gray;
   font-size: calc(.5em + .25vw);
+}
+
+
+@media only screen and (max-width: 800px) {
+
+  .current__temp > div {
+    font-size: max(40px, 20vw);
+  }
+
+  .current__container {
+    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .current__container > .left {
+    border: 0;
+  }
+
+  .day__container {
+    background-size: cover;
+  }
+
 }
