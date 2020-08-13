@@ -1,4 +1,5 @@
-## **The Weather-App**
+## **The Weather-App** 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b6fa39a0-853a-450d-af5a-f7cd8311fbe2/deploy-status)](https://app.netlify.com/sites/weather-jackyo-app/deploys)
 
 ![Home Page](https://github.com/jackyodev/weather/blob/master/screencapture-weather-jackyo-app-netlify-app-2020-08-10-01_05_50.png?raw=true)
 
